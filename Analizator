@@ -1,5 +1,4 @@
 import string
-stats=open(r'C:\Users\analyse_text.txt', "w+")
 
 print("""            1. Pobierz plik z internetu 
             2. Zlicz liczbe liter w pobranym pliku
@@ -60,4 +59,25 @@ try:
 except OSError as e:
     print('File not found. Please download the file once again')
     
-    
+low_letters_list=[]
+low_letters_list=string.ascii_lowercase
+letters_list=string.ascii_uppercase
+count_low=[]
+for letter in low_letters_list:
+    count_low.append(data.count(letter))
+
+upp_letters_list=[]
+letter_occur={}
+upp_letters_list=string.ascii_uppercase
+letters_list=string.ascii_uppercase
+count_upp=[]
+for letter in upp_letters_list:
+    count_upp.append(data.count(letter))
+
+let=[]
+for i in range (0, 26 ):
+    let.append(count_low[i]+count_upp[i])
+
+for i in range (0,26):
+    print(upp_letters_list[i], ": ", let[i])
+    stats.write(repr(upp_letters_list[i])+ ": "+ repr(let[i])+'\n')
