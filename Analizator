@@ -33,3 +33,15 @@ try:
     stats.write('Number of words in text file: ' + repr(count_words)+'\n')
 except OSError as e:
     print('File not found. Please download the file once again')
+
+try:
+    punct=0
+    plik = open(r'C:\Users\analyse_text.txt', 'r')
+    plik_open = plik.read()
+    for char in plik_open:
+        if char in string.punctuation:
+            punct=punct+1
+    print("Number of punctuactions in text file: ", punct)
+    stats.write('Number of punctuations in text file: ' + repr(punct)+'\n')
+except OSError as e:
+    print('File not found. Please download the file once again')
