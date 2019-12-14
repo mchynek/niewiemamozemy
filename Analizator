@@ -10,7 +10,9 @@ print("""            1. Pobierz plik z internetu
             8. Wyjscie z programu""")
 url = r'https://s3.zylowski.net/public/input/2.txt'
 myfile=requests.get(url)
-open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content
+open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content)
+
+stats=open(r'C:\Users\statystyki.txt', "w+")
 
 try:
     char_count=0
