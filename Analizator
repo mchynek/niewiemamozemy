@@ -7,13 +7,13 @@ print("""            1. Pobierz plik z internetu
             6. Wygeneruj raport o uzyciu liter (A-Z)
             7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt
             8. Wyjscie z programu""")
-url = r'https://s3.zylowski.net/public/input/2.txt
+url = r'https://s3.zylowski.net/public/input/2.txt'
 myfile=requests.get(url)
 open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content
 
 try:
     char_count=0
-    text = open(r'C:\Users\u743083\Desktop\fold\plik.txt', 'r')
+    text = open(r'C:\Users\analyse_text.txt', 'r')
     data = text.read()
     for char in data:
         if char in string.ascii_letters:
@@ -23,4 +23,13 @@ try:
 except OSError as e:
     print('File not found. Please download the file once again')
 stats.close()
-stats=open(r'C:\Users\u743083\Desktop\fold\statystyki.txt', "a+")
+stats=open(r'C:\Users\analyse_text.txt', "a+")
+try:
+    file = open(r'C:\Users\analyse_text.txt', 'r')
+    data = file.read().split()
+    print(data)
+    count_words=len(data)
+    print('Number of words in text file: ', count_words)
+    stats.write('Number of words in text file: ' + repr(count_words)+'\n')
+except OSError as e:
+    print('File not found. Please download the file once again')
