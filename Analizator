@@ -1,3 +1,4 @@
+import string
 print("""            1. Pobierz plik z internetu 
             2. Zlicz liczbe liter w pobranym pliku
             3. Zlicz liczbe wyrazów w pliku
@@ -8,4 +9,18 @@ print("""            1. Pobierz plik z internetu
             8. Wyjscie z programu""")
 url = r'https://s3.zylowski.net/public/input/2.txt
 myfile=requests.get(url)
-open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content)
+open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content
+
+try:
+    char_count=0
+    text = open(r'C:\Users\u743083\Desktop\fold\plik.txt', 'r')
+    data = text.read()
+    for char in data:
+        if char in string.ascii_letters:
+            char_count=char_count+1
+    print('Number of characters in text file: ', char_count)
+    stats.write('Number of characters in text file: ' + repr(char_count)+'\n')
+except OSError as e:
+    print('File not found. Please download the file once again')
+stats.close()
+stats=open(r'C:\Users\u743083\Desktop\fold\statystyki.txt', "a+")
