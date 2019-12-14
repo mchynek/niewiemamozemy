@@ -1,4 +1,6 @@
 import string
+stats=open(r'C:\Users\analyse_text.txt', "w+")
+
 print("""            1. Pobierz plik z internetu 
             2. Zlicz liczbe liter w pobranym pliku
             3. Zlicz liczbe wyrazów w pliku
@@ -57,3 +59,5 @@ try:
     stats.write('Number of sentences in text file: ' + repr(count_sent)+'\n')
 except OSError as e:
     print('File not found. Please download the file once again')
+    
+    
