@@ -1,0 +1,8 @@
+print("""            1. Pobierz plik z internetu 
+            2. Zlicz liczbe liter w pobranym pliku
+            3. Zlicz liczbe wyrazów w pliku
+            4. Zlicz liczbe znaków interpunkcyjnych w pliku.
+            5. Zlicz liczbe zdan w pliku
+            6. Wygeneruj raport o uzyciu liter (A-Z)
+            7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt
+            8. Wyjscie z programu""")
