@@ -6,3 +6,6 @@ print("""            1. Pobierz plik z internetu
             6. Wygeneruj raport o uzyciu liter (A-Z)
             7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt
             8. Wyjscie z programu""")
+url = r'https://s3.zylowski.net/public/input/2.txt
+myfile=requests.get(url)
+open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content)
