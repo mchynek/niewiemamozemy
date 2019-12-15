@@ -1,19 +1,18 @@
 import string
 import requests
 
-print("""            1. Pobierz plik z internetu 
-            2. Zlicz liczbe liter w pobranym pliku
-            3. Zlicz liczbe wyrazów w pliku
-            4. Zlicz liczbe znaków interpunkcyjnych w pliku.
-            5. Zlicz liczbe zdan w pliku
-            6. Wygeneruj raport o uzyciu liter (A-Z)
-            7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt
-            8. Wyjscie z programu""")
-url = r'https://s3.zylowski.net/public/input/2.txt'
-myfile=requests.get(url)
-open(r'C:\Users\analyse_text.txt', 'wb').write(myfile.content)
+print ("1. Wybierz plik wejsciowy")
+decision=raw_input('Czy program ma pobrac plik z Internetu? T/N')
+if decision==('T'):
+print("Podaj URL pliku: ")
+url=raw_input()
+myfile = requests.get(url)
+with open('C:\Users\studentwsb\Desktop\nowy.txt', 'w') as f:
+f.write(myfile.content)
+if decision==('N'):
+print("Podaj sciezke pliku: ")
+url=raw_input()
 
-stats=open(r'C:\Users\statystyki.txt', "w+")
 
 try:
     char_count=0
