@@ -1,4 +1,5 @@
 import string
+import requests
 
 print("""            1. Pobierz plik z internetu 
             2. Zlicz liczbe liter w pobranym pliku
