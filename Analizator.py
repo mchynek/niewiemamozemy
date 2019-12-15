@@ -15,18 +15,30 @@ url=raw_input()
 
 
 try:
-    char_count=0
-    text = open(r'C:\Users\analyse_text.txt', 'r')
+    samogloski=0
+    samogloski_list=[]
+    samogloski_list=['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o','U', 'u','Y' ,'y']
+    text = open(r'C:\Users\studentwsb\Desktop\nowy.txt', 'r')
     data = text.read()
     for char in data:
-        if char in string.ascii_letters:
-            char_count=char_count+1
-    print('Number of characters in text file: ', char_count)
-    stats.write('Number of characters in text file: ' + repr(char_count)+'\n')
+        if char in samogloski_list:
+            samogloski=samogloski+1
+    print('samogloski', samogloski)
 except OSError as e:
     print('File not found. Please download the file once again')
-stats.close()
-stats=open(r'C:\Users\analyse_text.txt', "a+")
+
+try:
+    spolgloski=0
+    spolgloski_list=[]
+    spolgloski_list=['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'w', 'x', 'z', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'W', 'X', 'Z']
+    text = open(r'C:\Users\studentwsb\Desktop\nowy.txt', 'r')
+    data = text.read()
+    for char in data:
+        if char in spolgloski_list:
+            spolgloski=spolgloski+1
+    print('spolgloski', spolgloski)
+except OSError as e:
+    print('File not found. Please download the file once again')
 try:
     file = open(r'C:\Users\analyse_text.txt', 'r')
     data = file.read().split()
