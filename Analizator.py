@@ -10,10 +10,22 @@ print("""            1. Pobierz plik z internetu
             7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt
             8. Wyjscie z programu""")
 
-url = r'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwjT9_C2z5fmAhXisosKHY9AB_UQFjAAegQIBRAJ&url=http%3A%2F%2F25.io%2Ftoau%2Faudio%2Fsample.txt&usg=AOvVaw2ICc9VRyFRjKYeSurH31CF' #tu wpisac poprawny link do tekstu
-myfile=requests.get(url)
-open(r'plik.txt', 'wb').write(myfile.content) #a tutaj wpisac lokalizacje gdzie ma byc plik pobrany
+import os
+print("Pobrac plik z internetu? Y/N]")
+action = (input())
+if action == "Y":
+    print("Podaj link")
+    #url = input()
+    url = 'https://s3.zylowski.net/public/input/6.txt'
+    r = requests.get(url)
+    open('plik.txt', 'wb').write(r.content)
 
+if action == "N":
+    print("Podaj nazwe pliku")
+    filename = input()
+    if(not os.path.exists(filename)) or (not os.path.exists(filename)):
+        filename = input("Plik nie istieje")
+    file = open(filename, 'r')
 
 stats=open(r'statystyki.txt', "w+")
 try:
