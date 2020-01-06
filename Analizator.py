@@ -58,8 +58,9 @@ try:
     punct=0
     plik = open(r'plik.txt', 'r')
     plik_open = plik.read()
+    punctuations = ['.', '?']
     for char in plik_open:
-        if char in string.punctuation:
+        if char in punctuation:
             punct=punct+1
     print("Number of punctuactions in text file: ", punct)
     stats.write('Number of punctuations in text file: ' + repr(punct)+'\n')
