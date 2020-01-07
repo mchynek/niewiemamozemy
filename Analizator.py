@@ -72,7 +72,7 @@ try:
     import re
     file = open(r'plik.txt', 'r')
     data=file.read()
-    sentence=re.split(r'[.?!]\s*', data)
+    sentence=re.split(r'[.?]\s*', data)
     count_sent=len(sentence)-1
     print('Number of sentences in text file: ', count_sent)
     stats.write('Number of sentences in text file: ' + repr(count_sent)+'\n')
