@@ -1,7 +1,8 @@
 import string
 import requests
 
-print("""            1. Pobierz plik z internetu 
+
+print("""            1. Wybierz [plik zrodłowy
             2. Zlicz liczbe liter w pobranym pliku
             3. Zlicz liczbe wyrazów w pliku
             4. Zlicz liczbe znaków interpunkcyjnych w pliku.
@@ -45,11 +46,40 @@ stats=open(r'statystyki.txt', "a+")
 
 try:
     file = open(r'plik.txt', 'r')
+    samogloski=0
+    samogloski_list=[]
+    samogloski_list=['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o','U', 'u','Y' ,'y']
+    for char in data:
+        if char in samogloski_list:
+            samogloski=samogloski+1
+    print('samogloski', samogloski)
+    stats.write('Number of samogloski in text file: ' + repr(samogloski) + '\n')
+    file.close()
+except OSError as e:
+    print('File not found. Please download the file once again')
+
+try:
+    file = open(r'plik.txt', 'r')
+    spolgloski=0
+    spolgloski_list=[]
+    spolgloski_list=['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'w', 'x', 'z', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'W', 'X', 'Z']
+    for char in data:
+        if char in spolgloski_list:
+            spolgloski=spolgloski+1
+    print('spolgloski ', spolgloski)
+    stats.write('Number of spolgloski in text file: ' + repr(spolgloski) + '\n')
+    file.close()
+except OSError as e:
+    print('File not found. Please download the file once again')
+
+try:
+    file = open(r'plik.txt', 'r')
     data = file.read().split()
     count_words=0
     for i in range(len(data)-1):
-            if len(data[i])>1:
-                        count_words=count_words+1
+        if len(data[i])>1:
+            count_words=count_words+1
+    #poprawic, liczy kazda sekwencje charow, oddzielonych spacjami. nawet jezeli to znaki punct.
     print('Number of words in text file: ', count_words)
     stats.write('Number of words in text file: ' + repr(count_words)+'\n')
     file.close()
@@ -60,7 +90,7 @@ try:
     punct=0
     plik = open(r'plik.txt', 'r')
     plik_open = plik.read()
-    punctuations = ['.', '?']
+    punctuation=['?', '.']
     for char in plik_open:
         if char in punctuation:
             punct=punct+1
@@ -74,7 +104,7 @@ try:
     import re
     file = open(r'plik.txt', 'r')
     data=file.read()
-    sentence=re.split(r'[.?]\s*', data)
+    sentence=re.split(r'[.?!]\s*', data)
     count_sent=len(sentence)-1
     print('Number of sentences in text file: ', count_sent)
     stats.write('Number of sentences in text file: ' + repr(count_sent)+'\n')
