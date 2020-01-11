@@ -46,8 +46,10 @@ stats=open(r'statystyki.txt', "a+")
 try:
     file = open(r'plik.txt', 'r')
     data = file.read().split()
-    count_words=len(data)
-    #poprawic, liczy kazda sekwencje charow, oddzielonych spacjami. nawet jezeli to znaki punct.
+    count_words=0
+    for i in range(len(data)-1):
+            if len(data[i])>1:
+                        count_words=count_words+1
     print('Number of words in text file: ', count_words)
     stats.write('Number of words in text file: ' + repr(count_words)+'\n')
     file.close()
